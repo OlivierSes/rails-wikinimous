@@ -1,0 +1,20 @@
+
+<div class= "banner">
+<h1>Browse through our awesome articles</h1>
+</div>
+<ul>
+<% @articles.each do |article| %>
+  <div class="row">
+    <div class="container fixed-heigth fixed-width-large container-inline">
+      <li class="super-list fixed-width"> <%= article.title %> </li>
+    </div>
+  </div>
+  <div class="container" style="margin-left: 0px; padding-left: 0px; margin-top: 15px;">
+    <%= link_to "Content", article_path(article.id), class: "btn btn-default btn-fixed-width" %>
+    <%= link_to "delete article", article_path(article.id), method: :delete , class: "btn btn-default btn-fixed-width" %>
+    <%= link_to "update", edit_article_path(article.id), class: "btn btn-default btn-fixed-width" %>
+  </div>
+<% end %>
+</ul>
+
+<%= link_to "Add a new article", new_article_path, class: "btn btn-default btn-fixed-width btn-last" %>
